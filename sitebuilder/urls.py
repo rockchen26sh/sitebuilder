@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from .views import page
+from django.conf import settings
 
 urlpatterns = (
     url(r'^(?P<slug>[\w./-]+)/$',page,name='page'),
-    url(r'/$',page,name='page'),
     url(r'^$', page , name='homepage'),
+    #url(r'^static/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.STATIC_PATH})
 )
-

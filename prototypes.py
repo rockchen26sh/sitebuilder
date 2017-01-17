@@ -19,17 +19,24 @@ settings.configure(
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
+        'sitebuilder'
     ],
+    STATIC_ROOT = os.path.join(BASE_DIR,'sitebuilder/static').replace('\\','/') ,
     TEMPLATES=(
         {
             'BACKEND': 'django.template.backends.django.DjangoTemplates',
              'DIRS':[
-                 '/home/liunx/PycharmProjects/sitebuilder/sitebuilder/templates'
+                 os.path.join(BASE_DIR, '../templates'),
              ],
             'APP_DIRS':True,
         },
     ),
+    STATIC_PATH= os.path.join(os.path.dirname(__file__), 'static').replace('\\','/'),
     STATIC_URL = '/static/',
+    STATICFILE_DIRS=(
+        os.path.join(BASE_DIR, 'static').replace('\\','/'),
+    ),
+
     SITE_PAGES_DIRECTORY=os.path.join(BASE_DIR,'pages'),
 )
 

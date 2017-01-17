@@ -8,12 +8,11 @@ from django.utils._os import safe_join
 def get_page_or_404(name):
     try:
         file_path = safe_join(settings.SITE_PAGES_DIRECTORY,name)
-        #file_path = replace("\\\\","\\")
     except ValueError:
         raise Http404('Page Not Found 1')
-    else:
-        if not os.path.exists(file_path):
-            raise Http404('Page Not Found 2')
+    #else:
+        #if not os.path.exists(file_path):
+            #raise Http404('Page Not Found 2')
 
     with open(file_path,'r') as f:
         page = Template(f.read())
